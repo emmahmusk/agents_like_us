@@ -14,6 +14,7 @@ django = "*"
 djangorestframework = "*"
 python-dotenv = "*"
 google-generativeai = "*"
+git-filter-repo = "*"
 
 [dev-packages]
 
