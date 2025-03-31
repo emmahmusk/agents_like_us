@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-7fy%f3pnadc%%@=m(l&ysdwq)g6$(@pie5@jq(5zc^&rx@7y5h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["agents-like-us-1.onrender.com", "*"]
 
 
 OPENAI_API_KEY = environ.get("OPENAI_API_KEY_AGENTS")
