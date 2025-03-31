@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from .prompts import BOOK_SUMMARY_PROMPT, CODE_COMPONENT_PROMPT, MOVIE_SYNOPSIS_PROMPT
+from rest_framework.parsers import MultiPartParser
 
 
 # Define a directory to save generated code files
@@ -47,6 +48,7 @@ class CodeComponentView(APIView):
             language = data.get("language", "Python").strip()
             code_description = data.get("code_description")
             input_params = data.get("input_params", "N/A")
+            framework = data.get("framework", "N/A")
             expected_output = data.get("expected_output", "N/A")
 
             if not code_description:
@@ -56,6 +58,7 @@ class CodeComponentView(APIView):
                 language=language,
                 code_description=code_description,
                 input_params=input_params,
+                framework=framework,
                 expected_output=expected_output
             )
 

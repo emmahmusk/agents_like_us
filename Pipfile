@@ -15,6 +15,10 @@ djangorestframework = "*"
 python-dotenv = "*"
 google-generativeai = "*"
 git-filter-repo = "*"
+fastapi = "*"
+pillow = "*"
+pdfkit = "*"
+reportlab = "*"
 
 [dev-packages]
 

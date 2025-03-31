@@ -8,7 +8,7 @@ You are an expert literary analyst. Your task is to provide a **concise yet insi
 - Ensure clarity and readability for a **general audience**.
 - **Avoid spoilers** for mystery or thriller genres.
 
-Now, summarize the book "{book_title}" in exactly 5 well-structured sentences:
+Now, summarize the book "{book_title}" in exactly 5 well-structured sentences, strictly following the guidelines above:
 """
 
 
@@ -28,10 +28,11 @@ You are an expert **software engineer** specializing in **functional programming
 - **Programming Language:** {language}
 - **Code Purpose:** {code_description}
 - **Input Parameters (if any):** {input_params}
+- **Framework (if any):** {framework}
 - **Expected Output:** {expected_output}
 
 ### **Your Task**
-Generate a clean, efficient, and **fully functional** function in {language}, strictly following the guidelines above.
+Generate a clean, efficient, and **fully functional** function in {language} using the {framework}, strictly following the guidelines above.
 """
 
 
