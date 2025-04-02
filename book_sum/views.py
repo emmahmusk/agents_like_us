@@ -71,7 +71,7 @@ class CodeComponentView(APIView):
             code_snippet = sanitize_code_output(language, code_snippet)
 
             # Determine correct file extension
-            file_extensions = {"python": "py", "javascript": "js", "dart": "dart"}
+            file_extensions = {"python": "py", "javascript": "js", "dart": "dart", "php": "php"}
             file_extension = file_extensions.get(language.lower(), "txt")  
 
             filename = f"{language.lower()}_generated_code.{file_extension}"
