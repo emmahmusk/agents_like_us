@@ -16,6 +16,7 @@ python-dotenv = "*"
 google-generativeai = "*"
 git-filter-repo = "*"
 gunicorn = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
