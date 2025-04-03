@@ -1,15 +1,15 @@
 import os
 
-from django.http import JsonResponse
-import requests
+from django.http import JsonResponse # type: ignore
+import requests # type: ignore
 from .sanitzer import sanitize_code_output
 import google.generativeai as genai # type: ignore
-from django.conf import settings
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import status
+from django.conf import settings # type: ignore
+from rest_framework.response import Response # type: ignore
+from rest_framework.views import APIView # type: ignore
+from rest_framework import status # type: ignore
 from .prompts import BOOK_SUMMARY_PROMPT, CAREER_ADVICE_PROMPT, CODE_COMPONENT_PROMPT, MOVIE_SYNOPSIS_PROMPT
-from rest_framework.parsers import MultiPartParser
+from rest_framework.parsers import MultiPartParser # type: ignore
 
 
 # Define a directory to save generated code files
@@ -44,7 +44,7 @@ class BookSummaryView(APIView):
 class CodeComponentView(APIView):
     def post(self, request, *args, **kwargs):
         try:
-            data = request.data  
+            data = request.data
             language = data.get("language", "Python").strip()
             code_description = data.get("code_description")
             input_params = data.get("input_params", "N/A")
