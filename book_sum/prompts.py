@@ -63,3 +63,20 @@ Now, summarize the movie following the structure below:
 Ensure your response is well-structured, engaging, and easy to follow.
 """
 
+CAREER_ADVICE_PROMPT = """
+You are a university career advisor. A student has asked the following question:
+
+**Query:** {query}
+
+They are considering a course in **{course_name}** at **{university_name}**.
+Provide an insightful and helpful response, including:
+- Entry requirements
+- Recommended subjects
+- Necessary soft skills
+- Career opportunities
+- Additional tips
+
+Please provide your response in a clear, engaging, and supportive tone.
+"""
+
+

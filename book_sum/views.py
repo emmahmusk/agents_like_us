@@ -8,7 +8,7 @@ from django.conf import settings
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from .prompts import BOOK_SUMMARY_PROMPT, CODE_COMPONENT_PROMPT, MOVIE_SYNOPSIS_PROMPT
+from .prompts import BOOK_SUMMARY_PROMPT, CAREER_ADVICE_PROMPT, CODE_COMPONENT_PROMPT, MOVIE_SYNOPSIS_PROMPT
 from rest_framework.parsers import MultiPartParser
 
 
@@ -149,3 +149,32 @@ class MovieSearchView(APIView):
 
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class CareerAdviceView(APIView):
+    def post(self, request):
+        student_query = request.data.get("query")
+        course_name = request.data.get("course_name", "")
+        university_name = request.data.get("university_name", "")
+
+        if not student_query:
+            return Response({"error": "Query is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            model = genai.GenerativeModel("gemini-1.5-flash")  # Using Gemini Flash 1.5
+            # Format the prompt with user input
+            formatted_prompt = CAREER_ADVICE_PROMPT.format(
+                query=student_query,
+                course_name=course_name,
+                university_name=university_name
+            )
+
+            response = model.generate_content(formatted_prompt)
+
+            # Extract response text
+            advice = response.text if response else "No response generated."
+
+            return Response({"query": student_query, "advice": advice}, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
