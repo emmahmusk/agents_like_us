@@ -70,7 +70,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 CORS_ALLOW_ALL_HEADERS = True
 
-CORS_ALLOW_ALL_ORIGINS = bool(environ.get('CORS_ALLOW_ALL_ORIGINS', default=False))
+CORS_ALLOW_ALL_ORIGINS = environ.get('CORS_ALLOW_ALL_ORIGINS', default=False)
 
 ROOT_URLCONF = "ai_agent.urls"
 
